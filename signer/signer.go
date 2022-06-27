@@ -197,7 +197,7 @@ func validate(payload []byte, payloadCty string, signTime, expTime time.Time, ce
 		return f("certificate-chain not present or is empty")
 	}
 
-	err := nx509.ValidateCertChain(certChain)
+	err := nx509.ValidateCodeSigningCertChain(certChain)
 	if err != nil {
 		return f(fmt.Sprintf("certificate-chain is invalid, %s", err))
 	}
